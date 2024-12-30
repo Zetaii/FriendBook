@@ -1,5 +1,8 @@
 # FriendBook
-![FriendBook Screenshot](https://github.com/Zetaii/FriendBook/blob/main/friendbook1.png?raw=true)
+![FriendBook Screenshot1](https://github.com/Zetaii/FriendBook/blob/main/friendbook2.png?raw=true)
+![FriendBook Screenshot2](https://github.com/Zetaii/FriendBook/blob/main/friendbook3.png?raw=true)
+![FriendBook Screenshot3](https://github.com/Zetaii/FriendBook/blob/main/friendbook1.png?raw=true)
+![FriendBook Screenshot4](https://github.com/Zetaii/FriendBook/blob/main/friendbook2.png?raw=true)
 
 
 FriendBook is a social networking application built with Django, PostgreSQL, and Docker. The application allows users to create profiles and manage friendships.
