@@ -1,27 +1,26 @@
 FROM python:3.11-slim
 
-# Set environment variables
-ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONUNBUFFERED 1
-
-# Set work directory
 WORKDIR /app
 
-# Install system dependencies
+ENV PYTHONUNBUFFERED=1 \
+    PYTHONPATH=/app/src
+
 RUN apt-get update && apt-get install -y \
     gcc \
     postgresql-client \
     && rm -rf /var/lib/apt/lists/*
 
-# Install Python dependencies
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy project
-COPY . .
+COPY src/ /app/src/
 
-# Run entrypoint script
-COPY docker-entrypoint.sh /docker-entrypoint.sh
-RUN chmod +x /docker-entrypoint.sh
+RUN mkdir -p /app/src/users/management/commands
 
-ENTRYPOINT ["/docker-entrypoint.sh"] 
+COPY src/users/management/commands/init_db.py /app/src/users/management/commands/
+
+WORKDIR /app/src
+
+EXPOSE 8080
+
+CMD python manage.py init_db && gunicorn friendbook.wsgi:application --bind 0.0.0.0:8080
