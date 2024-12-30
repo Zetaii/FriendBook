@@ -5,7 +5,6 @@
 ![FriendBook Screenshot4](https://github.com/Zetaii/FriendBook/blob/main/friendbook2.png?raw=true)
 
 
-FriendBook is a social networking application built with Django, PostgreSQL, and Docker. The application allows users to create profiles and manage friendships.
 
 ## Features
 
